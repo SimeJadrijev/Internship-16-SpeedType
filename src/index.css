@@ -1,0 +1,22 @@
+/* fonts */
+@font-face {
+    font-family: "Fuse";
+    src: url(./assets/fonts/FuseV.2Display-Book.woff2);
+}
+@font-face {
+    font-family: "Fuse-text";
+    src: url(./assets/fonts/FuseV.2Text-Book.woff2);
+}
+
+
+/* colors */
+:root{
+    --yellow: #e2b714;
+    --gray: #323437;
+}
+
+:root{
+    background-color: var(--gray);
+    color: var(--yellow);
+    font-family: "Fuse-text";
+}
