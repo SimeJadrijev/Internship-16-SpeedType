@@ -13,10 +13,18 @@
 :root{
     --yellow: #e2b714;
     --gray: #323437;
+    --light-gray: rgb(100, 102, 105);
+    --dirty-white: rgb(163, 162, 162);
 }
 
 :root{
     background-color: var(--gray);
     color: var(--yellow);
     font-family: "Fuse-text";
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }

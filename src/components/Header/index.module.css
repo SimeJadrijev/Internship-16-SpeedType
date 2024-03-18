@@ -1,0 +1,48 @@
+.headerContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    gap: 150px;
+}
+.headerContainer a{
+    text-decoration: none;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+}
+.headerContainer a:hover{
+    color: var(--yellow);
+}
+
+.headerButtons{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.headerButtons button{
+    color: var(--light-gray);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+.headerButtons button:hover{
+    background-color: var(--yellow);
+}
+
+.headerStats{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.headerStats p{
+    color: var(--light-gray);
+    color: var(--dirty-white);
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
+.headerStats p span{
+    color: var(--yellow);
+}
