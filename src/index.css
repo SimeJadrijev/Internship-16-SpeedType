@@ -19,7 +19,7 @@
 
 :root{
     background-color: var(--gray);
-    color: var(--yellow);
+    color: var(--dirty-white);
     font-family: "Fuse-text";
     display: flex;
     width: 100%;

@@ -1,0 +1,50 @@
+.practiceInputField{
+    width: 790px;
+    outline: 1px solid var(--light-gray);
+    border-radius: 2px;
+    border: none;
+    outline: none;
+}
+textarea{
+    background-color: transparent;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: none;
+    font-family: "Fuse-text";
+    font-size: 20px;
+    width: 100%;
+    height: 200px;
+    resize: none;
+
+    color: var(--dirty-white);
+}
+textarea:focus{
+    /* outline: 1px solid rgba(255, 255, 255, 0.136); */
+    outline: none;
+}
+textarea::placeholder{
+    color: var(--light-gray);
+    
+}
+textarea::-webkit-scrollbar{
+    display: none;
+}
+h2{
+    margin-top: 120px;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 100;
+    border-bottom: 1px solid white;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+h3{
+    font-weight: 100;
+}
+h3 span{
+    color: var(--yellow);
+}
+
+
+
+
