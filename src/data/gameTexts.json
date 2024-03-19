@@ -1,0 +1,53 @@
+[
+    {
+        "id":1,
+        "text": "Michael Phelps, the most decorated Olympian of all time, revolutionized the sport of swimming",
+        "level": 1
+    },
+    {
+        "id":2,
+        "text": "Marko Livaja is able to provide a lot of quality passes for his teammates",
+        "level": 1
+    },
+    {
+        "id":3,
+        "text": "The fastest man in history is, of course, Usain Bolt",
+        "level": 1
+    },
+    {
+        "id":4,
+        "text": "Frontend framworks like React and Angular empower developers to create dynamic and interactive user interfaces, enhacing the user experience and improving usability",
+        "level": 2
+    },
+    {
+        "id":5,
+        "text": "Database managment systems like MySQL and MongoDB enable developers to store and manipulate structured data efficiently, ensuring data integrity and reliability.",
+        "level": 2
+    },
+    {
+        "id":6,
+        "text": "Version control systems like Git are essential for collaborative software development allowing developers to track changes, manage codebase, and work seamlessly as a team",
+        "level": 2
+    },
+    {
+        "id":7,
+        "text": "Political ideologies such as liberalism, conservatism, socialism, and fascism shape the foundation of modern governance, influencing policies, laws, and societal norms",
+        "level": 3
+    },
+    {
+        "id":8,
+        "text": "Political polarization refers to the deepening divide between individuals or groups with opposing political beliefs, leading to social unrest, ideological clashes, and gridlocked governance",
+        "level": 3
+    },
+    {
+        "id":9,
+        "text": "Civil liberties, including freedom of speech, assembly, and press, are essential pillars of democracy, safeguarding individual rights and promoting civic engagement and accountability",
+        "level": 3
+    },
+    {
+        "id":10,
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Cras accumsan, odio sed interdum pretium, urna odio accumsan nisi, eu pulvinar ipsum nulla ut libero",
+        "level": 3
+    }
+    
+]
