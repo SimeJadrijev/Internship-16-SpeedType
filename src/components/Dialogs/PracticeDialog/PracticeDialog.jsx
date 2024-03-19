@@ -1,5 +1,4 @@
 import DialogComponent from "../DialogComponent";
-import { Dialog } from "@mui/material";
 
 const PracticeDialog = ({ isOpen, setIsOpen, handleYesClick }) => {
   const handleYesClick = () => {
