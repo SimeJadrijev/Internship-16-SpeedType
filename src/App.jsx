@@ -1,14 +1,12 @@
 import { StyledEngineProvider } from "@mui/material";
 import "./App.css";
-import Header from "./components/Header";
-import Practice from "./components/Practice";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
     <>
       <StyledEngineProvider injectFirst>
-        <Header />
-        <Practice />
+        <MainPage />
       </StyledEngineProvider>
     </>
   );
