@@ -2,18 +2,19 @@ import Header from "../../components/Header";
 import DialogComponent from "../../components/Dialogs/DialogComponent";
 import { useState } from "react";
 import PracticePage from "../PracticePage";
+import RegularModePage from "../RegularModePage";
+import InstantDeathModePage from "../InstantDeathModePage";
 
 const MainPage = () => {
   const [isPracticeDialogOpen, setIsPracticeDialogOpen] = useState(false);
   const [isPracticePageOpen, setIsPracticePageOpen] = useState(false);
   const [isNewGameDialogOpen, setIsNewGameDialogOpen] = useState(false);
+  const [isRegularModePageOpen, setIsRegularModePageOpen] = useState(false);
+  const [IsInstantDeathModeOpen, setIsInstantDeathModeOpen] = useState(false);
 
   const handleOpenDialog = (dialogType) => {
-    if (dialogType === "practice") {
-      setIsPracticeDialogOpen(true);
-    } else if (dialogType === "newGame") {
-      setIsNewGameDialogOpen(true);
-    }
+    if (dialogType === "practice") setIsPracticeDialogOpen(true);
+    else if (dialogType === "newGame") setIsNewGameDialogOpen(true);
   };
 
   const handleCloseDialog = () => {
@@ -23,11 +24,24 @@ const MainPage = () => {
 
   const handleYesClick = (dialogType) => {
     if (dialogType === "practice") {
+      //mozda maknit ovaj dio kasnije ako ne bude ne potreban, ostavit samo bez ifa
       setIsPracticeDialogOpen(false);
       setIsPracticePageOpen(true);
-    } else if (dialogType === "newGame") {
-      setIsNewGameDialogOpen(false);
     }
+  };
+
+  const handleRegularModeClick = () => {
+    setIsNewGameDialogOpen(false);
+    setIsPracticePageOpen(false);
+    setIsInstantDeathModeOpen(false);
+    setIsRegularModePageOpen(true);
+  };
+
+  const handleInstantDeathModeClick = () => {
+    setIsNewGameDialogOpen(false);
+    setIsRegularModePageOpen(false);
+    setIsPracticePageOpen(false);
+    setIsInstantDeathModeOpen(true);
   };
 
   const practiceDialogButtons = [
@@ -35,8 +49,11 @@ const MainPage = () => {
     { label: "No", onClick: handleCloseDialog },
   ];
   const newGameDialogButtons = [
-    { label: "Regular Mode", onClick: () => handleYesClick("newGame") },
-    { label: "Instant Death Mode", onClick: handleCloseDialog },
+    { label: "Regular Mode", onClick: () => handleRegularModeClick() },
+    {
+      label: "Instant Death Mode",
+      onClick: () => handleInstantDeathModeClick(),
+    },
   ];
 
   return (
@@ -55,6 +72,8 @@ const MainPage = () => {
         buttons={newGameDialogButtons}
       />
       {isPracticePageOpen && <PracticePage />}
+      {isRegularModePageOpen && <RegularModePage />}
+      {IsInstantDeathModeOpen && <InstantDeathModePage />}
     </>
   );
 };

@@ -8,15 +8,27 @@ import {
 import { useState, useEffect } from "react";
 import DialogComponent from "../DialogComponent";
 
-const NewGameDialog = ({ isOpen, handleClose, handleYesClick }) => {
+const NewGameDialog = ({ isOpen, setIsOpen, handleRegularModeClick }) => {
+  const handleRegularModeClick = () => {
+    setIsOpen(false);
+    openRegularModePage();
+  };
+
+  const handleInstantDeathModeClick = () => {
+    setIsOpen(false);
+    openInstantDeathModePage();
+  };
   const buttons = [
-    { label: "Regular Mode", onClick: handleYesClick },
-    { label: "Instant Death Mode", onClick: handleClose },
+    { label: "Regular Mode", onClick: () => handleRegularModeClick() },
+    {
+      label: "Instant Death Mode",
+      onClick: () => handleInstantDeathModeClick(),
+    },
   ];
   return (
     <DialogComponent
       isOpen={isOpen}
-      handleClose={handleClose}
+      handleClose={() => setIsOpen(false)}
       title="Which mode do you want to enter?"
       buttons={buttons}
     />
