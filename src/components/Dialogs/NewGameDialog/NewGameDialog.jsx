@@ -6,16 +6,20 @@ import {
   Slide,
 } from "@mui/material";
 import { useState, useEffect } from "react";
+import DialogComponent from "../DialogComponent";
 
-const NewGameDialog = ({ isOpen, handleClose }) => {
+const NewGameDialog = ({ isOpen, handleClose, handleYesClick }) => {
+  const buttons = [
+    { label: "Regular Mode", onClick: handleYesClick },
+    { label: "Instant Death Mode", onClick: handleClose },
+  ];
   return (
-    <Dialog open={isOpen} onClose={handleClose} keepMounted>
-      <DialogTitle>Which mode do you want to enter?</DialogTitle>
-      <DialogActions>
-        <Button onClick={handleClose}>Regular Mode</Button>
-        <Button onClick={handleClose}>Instant Death Mode</Button>
-      </DialogActions>
-    </Dialog>
+    <DialogComponent
+      isOpen={isOpen}
+      handleClose={handleClose}
+      title="Which mode do you want to enter?"
+      buttons={buttons}
+    />
   );
 };
 

@@ -8,10 +8,12 @@ const Header = ({ handleOpenDialog }) => {
       <Box className={c.headerContainer}>
         <Link>dumptype</Link>
         <div className={c.headerButtons}>
-          <Button variant="text" onClick={handleOpenDialog}>
+          <Button variant="text" onClick={() => handleOpenDialog("practice")}>
             PRACTICE
           </Button>
-          <Button variant="text">NEW GAME</Button>
+          <Button variant="text" onClick={() => handleOpenDialog("newGame")}>
+            NEW GAME
+          </Button>
         </div>
         <div className={c.headerStats}>
           <p>

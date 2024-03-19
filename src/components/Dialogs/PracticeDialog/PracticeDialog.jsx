@@ -1,20 +1,24 @@
-import { Button, Dialog, DialogActions, DialogTitle } from "@mui/material";
+import DialogComponent from "../DialogComponent";
+import { Dialog } from "@mui/material";
 
-const PracticeDialog = ({ isOpen, setIsOpen, openPracticePage }) => {
+const PracticeDialog = ({ isOpen, setIsOpen, handleYesClick }) => {
   const handleYesClick = () => {
     setIsOpen(false);
     openPracticePage();
   };
+
+  const buttons = [
+    { label: "Yes", onClick: () => handleYesClick() },
+    { label: "No", onClick: () => setIsOpen(false) },
+  ];
+
   return (
-    <Dialog open={isOpen}>
-      <DialogTitle color={"black"}>
-        Are you sure you want to enter the practice mode?
-      </DialogTitle>
-      <DialogActions>
-        <Button onClick={handleYesClick}>Yes</Button>
-        <Button onClick={() => setIsOpen(false)}>No</Button>
-      </DialogActions>
-    </Dialog>
+    <DialogComponent
+      isOpen={isOpen}
+      handleClose={() => setIsOpen(false)}
+      title="Are you sure you want to enter the practice mode?"
+      buttons={buttons}
+    />
   );
 };
 
