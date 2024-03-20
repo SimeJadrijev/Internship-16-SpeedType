@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo } from "react";
 // import it
 import useTypingGame from "react-typing-game-hook";
-import { getRandomGameText } from "../../data";
+import { getRandomGameText } from "../../../data";
+import c from "./index.module.css";
 
 // -------------------------------------------------------------
 
@@ -9,9 +10,9 @@ const TypingGame = ({ level, setGamePhase }) => {
   const randomGameText = useMemo(() => getRandomGameText(level), [level]);
   // Call the hook
   const {
-    states: { chars, charsState, phase },
+    states: { chars, charsState, phase, skipCurrentWordOnSpace },
     actions: { insertTyping, resetTyping, deleteTyping },
-  } = useTypingGame(randomGameText);
+  } = useTypingGame(randomGameText, { skipCurrentWordOnSpace: false });
 
   useEffect(() => {
     setGamePhase(phase);
@@ -35,7 +36,8 @@ const TypingGame = ({ level, setGamePhase }) => {
     >
       {chars.split("").map((char, index) => {
         let state = charsState[index];
-        let color = state === 0 ? "black" : state === 1 ? "green" : "red";
+        let color =
+          state === 0 ? "rgb(100, 102, 105)" : state === 1 ? "white" : "red";
         return (
           <span key={char + index} style={{ color }}>
             {char}

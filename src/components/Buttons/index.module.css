@@ -1,0 +1,9 @@
+.nextLevelButton{
+    background-color: #e2b714;
+    color: black;
+    font-family: "Fuse";
+    font-weight: 900;
+}
+.nextLevelButton:hover{
+    background-color: #b69625;
+}

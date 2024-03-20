@@ -1,8 +1,10 @@
-import { Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { useGameInfo } from "../../Providers/GameInfoProvider";
-import TypingGame from "../../components/Games/TypingGame";
-import Header from "../../components/Header";
+import TypingGame from "../../components/Games/TypingGame/TypingGame";
 import { useEffect, useState } from "react";
+import Stopwatch from "../../components/Stopwatch";
+import { useStopwatch } from "react-timer-hook";
+import NextLevelButton from "../../components/Buttons";
 
 const RegularModePage = () => {
   const { gameMode, gameLevel, updateLevel } = useGameInfo();
@@ -11,7 +13,9 @@ const RegularModePage = () => {
   // const [gameCompleted, setGameCompleted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [gamePhase, setGamePhase] = useState(0);
-
+  const { totalSeconds, seconds, minutes, start } = useStopwatch({
+    autoStart: false,
+  });
   // FIXME
   // useEffect(() => {
   //   setTimeStarted(false);
@@ -44,14 +48,32 @@ const RegularModePage = () => {
 
   return (
     <>
+      <h2>Regular Mode</h2>
+      <Box display={"flex"} flexDirection={"column"} gap={1 / 4} marginTop={3}>
+        <Box display={"flex"} gap={1} alignItems={"center"}>
+          <Typography fontSize={"20px"} variant="p">
+            Level:
+          </Typography>
+          <Typography fontSize={"20px"} variant="p" color={"#e2b714"}>
+            {gameLevel}
+          </Typography>
+        </Box>
+        <Box display={"flex"} gap={1} alignItems={"center"}>
+          <Typography fontSize={"20px"} variant="p">
+            WPM:
+          </Typography>
+          <Typography fontSize={"20px"} variant="p" color={"#e2b714"}>
+            {gameLevel}
+          </Typography>
+        </Box>
+        <Stopwatch />
+      </Box>
       <TypingGame level={gameLevel} setGamePhase={setGamePhase} />
-      <Button
-        disabled={gamePhase !== 2}
-        variant="contained"
-        onClick={() => updateLevel(gameLevel + 1)}
-      >
-        Next level
-      </Button>
+      <NextLevelButton
+        updateLevel={updateLevel}
+        gameLevel={gameLevel}
+        gamePhase={gamePhase}
+      />
     </>
   );
 };
