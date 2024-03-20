@@ -17,25 +17,6 @@ const RegularModePage = () => {
   const { totalSeconds, seconds, minutes, start } = useStopwatch({
     autoStart: false,
   });
-  // FIXME
-  // useEffect(() => {
-  //   setTimeStarted(false);
-  //   setPassedTime(0);
-  //   setGameCompleted(false);
-  //   // setUserInput("");
-  //   // document.getElementById("myInput").value = "";
-  // }, [gameLevel, updateLevel]);
-
-  useEffect(() => {
-    let intervalId;
-    if (timeStarted && gamePhase !== 2) {
-      intervalId = setInterval(() => {
-        setPassedTime((prev) => prev + 1);
-      }, 1000);
-    }
-
-    return () => clearInterval(intervalId);
-  }, [timeStarted, gamePhase, gameLevel]);
 
   if (gamePhase === 2) {
     gameLevel === 3
