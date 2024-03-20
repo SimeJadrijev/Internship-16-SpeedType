@@ -1,23 +1,39 @@
 import React, { useEffect, useMemo, useRef } from "react";
 // import it
-import useTypingGame from "react-typing-game-hook";
+import useTypingGame, { CharStateType } from "react-typing-game-hook";
 import { getRandomGameText } from "../../../data";
 import c from "./index.module.css";
 
 // -------------------------------------------------------------
 
-const TypingGame = ({ level, setGamePhase }) => {
+const TypingGame = ({
+  level,
+  setGamePhase,
+  totalSeconds,
+  pauseOnErrorParam,
+}) => {
   const randomGameText = useMemo(() => getRandomGameText(level), [level]);
   const h1 = useRef(null);
   // Call the hook
   const {
-    states: { chars, charsState, phase, skipCurrentWordOnSpace },
+    states: { chars, charsState, phase },
     actions: { insertTyping, resetTyping, deleteTyping },
-  } = useTypingGame(randomGameText, { skipCurrentWordOnSpace: false });
+  } = useTypingGame(randomGameText, {
+    skipCurrentWordOnSpace: false,
+  });
 
   useEffect(() => {
     setGamePhase(phase);
+
+    const updateWpm = () => {
+      let totalWordsNumber = chars.split(" ").length;
+      let wpm = Math.floor(totalWordsNumber / (totalSeconds / 60));
+    };
   }, [phase]);
+
+  useEffect(() => {
+    if (charsState.includes(2)) console.log("greska!!");
+  }, [charsState]);
 
   useEffect(() => {
     const body = document.body;

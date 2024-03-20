@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Dialog, Typography } from "@mui/material";
 import { useGameInfo } from "../../Providers/GameInfoProvider";
 import TypingGame from "../../components/Games/TypingGame/TypingGame";
 import { useEffect, useState } from "react";
@@ -6,6 +6,7 @@ import Stopwatch from "../../components/Stopwatch";
 import { useStopwatch } from "react-timer-hook";
 import NextLevelButton from "../../components/Buttons";
 import LiveStats from "../../components/LiveStats";
+import ResetButton from "../../components/Buttons/ResetButton";
 
 const RegularModePage = () => {
   const { gameMode, gameLevel, updateLevel } = useGameInfo();
@@ -32,11 +33,16 @@ const RegularModePage = () => {
       <LiveStats gameLevel={gameLevel} />
       <Stopwatch gamePhase={gamePhase} />
       <TypingGame level={gameLevel} setGamePhase={setGamePhase} />
-      <NextLevelButton
-        updateLevel={updateLevel}
-        gameLevel={gameLevel}
-        gamePhase={gamePhase}
-      />
+      {(gameLevel !== 3 || gamePhase !== 2) && (
+        <NextLevelButton
+          updateLevel={updateLevel}
+          gameLevel={gameLevel}
+          gamePhase={gamePhase}
+        />
+      )}
+      {gameLevel === 3 && gamePhase === 2 && (
+        <ResetButton updateLevel={updateLevel} />
+      )}
     </>
   );
 };

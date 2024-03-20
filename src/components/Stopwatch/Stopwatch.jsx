@@ -16,8 +16,13 @@ const Stopwatch = ({ gamePhase }) => {
 
   useEffect(() => {
     if (gamePhase === 0) {
+      reset();
+      pause();
     }
-    if (gamePhase === 1) start();
+    if (gamePhase === 1) {
+      reset();
+      start();
+    }
     if (gamePhase === 2) pause();
   }, [gamePhase]);
   return (
