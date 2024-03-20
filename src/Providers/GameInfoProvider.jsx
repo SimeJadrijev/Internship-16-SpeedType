@@ -7,7 +7,7 @@ import { getGameTexts, getRandomGameText } from "../data";
 const defaultInfo = {
   gameMode: "regular",
   averageWpm: 0,
-  gameLevel: 0,
+  gameLevel: 1,
 };
 const GameInfoContext = createContext(defaultInfo);
 

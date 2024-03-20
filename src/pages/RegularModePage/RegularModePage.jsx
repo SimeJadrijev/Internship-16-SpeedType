@@ -8,47 +8,45 @@ const RegularModePage = () => {
   const { gameMode, gameLevel, updateLevel } = useGameInfo();
   const [timeStarted, setTimeStarted] = useState(false);
   const [passedTime, setPassedTime] = useState(0);
-  const [gameCompleted, setGameCompleted] = useState(false);
+  // const [gameCompleted, setGameCompleted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [gamePhase, setGamePhase] = useState(0);
 
-  useEffect(() => {
-    if (gameLevel === 0) updateLevel(1);
-    setTimeStarted(false);
-    setPassedTime(0);
-    setGameCompleted(false);
-    // setUserInput("");
-    // document.getElementById("myInput").value = "";
-  }, [gameLevel, updateLevel]);
+  // FIXME
+  // useEffect(() => {
+  //   setTimeStarted(false);
+  //   setPassedTime(0);
+  //   setGameCompleted(false);
+  //   // setUserInput("");
+  //   // document.getElementById("myInput").value = "";
+  // }, [gameLevel, updateLevel]);
 
   useEffect(() => {
     let intervalId;
-    if (timeStarted && !gameCompleted) {
+    if (timeStarted && gamePhase !== 2) {
       intervalId = setInterval(() => {
         setPassedTime((prev) => prev + 1);
       }, 1000);
     }
 
-    if (gameCompleted) {
-      gameLevel === 3
-        ? console.log("gotov 3 level")
-        : console.log("nije gotov 3 level");
-    }
-
     return () => clearInterval(intervalId);
-  }, [timeStarted, gameCompleted, gameLevel]);
+  }, [timeStarted, gamePhase, gameLevel]);
 
-  useEffect(() => {
-    if (gameOver && !gameCompleted) {
-      setGameCompleted(true);
-    }
-    setGameOver(false);
-  }, [gameOver, gameCompleted]);
+  if (gamePhase === 2) {
+    gameLevel === 3
+      ? console.log("gotov 3 level")
+      : console.log("nije gotov 3 level");
+  }
+
+  if (gameOver && gamePhase !== 2) {
+    setGameCompleted(true);
+  }
 
   return (
     <>
-      <TypingGame level={gameLevel} />
+      <TypingGame level={gameLevel} setGamePhase={setGamePhase} />
       <Button
-        // disabled={!gameCompleted}
+        disabled={gamePhase !== 2}
         variant="contained"
         onClick={() => updateLevel(gameLevel + 1)}
       >
