@@ -1,18 +1,10 @@
 import React, { useEffect } from "react";
-import { useStopwatch, useTimer } from "react-timer-hook";
+import { useStopwatch } from "react-timer-hook";
 
 const Stopwatch = ({ gamePhase }) => {
-  const {
-    totalSeconds,
-    seconds,
-    minutes,
-    start,
-    pause,
-    resume,
-    restart,
-    isRunning,
-    reset,
-  } = useStopwatch({ autoStart: false });
+  const { totalSeconds, seconds, minutes, start, pause, reset } = useStopwatch({
+    autoStart: false,
+  });
 
   useEffect(() => {
     if (gamePhase === 0) {

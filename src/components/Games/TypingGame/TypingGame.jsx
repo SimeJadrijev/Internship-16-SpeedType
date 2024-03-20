@@ -1,10 +1,7 @@
 import React, { useEffect, useMemo, useRef } from "react";
-// import it
 import useTypingGame, { CharStateType } from "react-typing-game-hook";
 import { getRandomGameText } from "../../../data";
 import c from "./index.module.css";
-
-// -------------------------------------------------------------
 
 const TypingGame = ({
   level,
@@ -14,7 +11,7 @@ const TypingGame = ({
 }) => {
   const randomGameText = useMemo(() => getRandomGameText(level), [level]);
   const h1 = useRef(null);
-  // Call the hook
+
   const {
     states: { chars, charsState, phase },
     actions: { insertTyping, resetTyping, deleteTyping },
@@ -48,7 +45,6 @@ const TypingGame = ({
     };
   }, []);
 
-  // Capture and display!
   return (
     <h1
       ref={h1}

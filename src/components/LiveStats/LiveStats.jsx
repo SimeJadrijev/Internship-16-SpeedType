@@ -1,4 +1,6 @@
 import { Box, Typography } from "@mui/material";
+import { useGameInfo } from "../../Providers/GameInfoProvider";
+import { useEffect, useState } from "react";
 
 const LiveStats = ({ gameLevel }) => {
   return (
@@ -17,7 +19,7 @@ const LiveStats = ({ gameLevel }) => {
             WPM:
           </Typography>
           <Typography fontSize={"20px"} variant="p" color={"#e2b714"}>
-            {gameLevel}
+            {/* tba */}
           </Typography>
         </Box>
       </Box>

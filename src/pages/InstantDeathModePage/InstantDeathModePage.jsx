@@ -21,11 +21,7 @@ const InstantDeathModePage = () => {
       <h2>Instant Death Mode</h2>
       <LiveStats gameLevel={gameLevel} />
       <Stopwatch gamePhase={gamePhase} />
-      <TypingGame
-        level={gameLevel}
-        setGamePhase={setGamePhase}
-        pauseOnErrorParam={true}
-      />
+      <TypingGame level={gameLevel} setGamePhase={setGamePhase} />
       <NextLevelButton
         updateLevel={updateLevel}
         gameLevel={gameLevel}

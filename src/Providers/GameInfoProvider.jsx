@@ -1,8 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable react/prop-types */
-import { useContext, useState, useEffect, createContext } from "react";
-// import { getGameTexts, getGameTextsByLevel, getRandomText } from "../data";
-import { getGameTexts, getRandomGameText } from "../data";
+import { useContext, useState, createContext } from "react";
 
 const defaultInfo = {
   gameMode: "regular",
@@ -16,16 +12,6 @@ const GameInfoProvider = ({ children }) => {
   const [averageWpm, setAverageWpm] = useState(defaultInfo.averageWpm);
   const [gameLevel, setGameLevel] = useState(defaultInfo.gameLevel);
   const [totalGamesPlayed, setTotalGamesPlayed] = useState(0);
-  // FIXME nepotrebno
-  //   const [resultText, setResultText] = useState(""); // Dodajte state za resultText
-
-  // TODO vidit sta triba s ovin
-  //   useEffect(() => {
-  //     if (gameLevel !== 0) {
-  //       const textsByLevel = getGameTextsByLevel(gameLevel);
-  //       setResultText(getRandomText(textsByLevel)); // Postavite rezultat teksta na temelju razine igre
-  //     }
-  //   }, [gameLevel]);
 
   const updateMode = (mode) => {
     setGameMode(mode);
@@ -33,14 +19,6 @@ const GameInfoProvider = ({ children }) => {
 
   const updateLevel = (level) => {
     setGameLevel(level);
-  };
-
-  const updateAverageWpm = (wpm) => {
-    const newWpm = Math.floor(
-      (averageWpm * (totalGamesPlayed - 1) + wpm) / totalGamesPlayed
-    );
-    setAverageWpm(newWpm);
-    setTotalGamesPlayed(totalGamesPlayed + 1);
   };
 
   return (
@@ -51,7 +29,6 @@ const GameInfoProvider = ({ children }) => {
         gameLevel,
         updateLevel,
         averageWpm,
-        updateAverageWpm,
       }}
     >
       {children}
