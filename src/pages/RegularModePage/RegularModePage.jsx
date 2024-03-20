@@ -18,10 +18,8 @@ const RegularModePage = () => {
     autoStart: false,
   });
 
-  if (gamePhase === 2) {
-    gameLevel === 3
-      ? console.log("gotov 3 level")
-      : console.log("nije gotov 3 level");
+  if (gamePhase === 2 && gameLevel === 4) {
+    console.log("gotov!");
   }
 
   if (gameOver && gamePhase !== 2) {
