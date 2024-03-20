@@ -5,13 +5,11 @@ import { getRandomGameText } from "../../data";
 
 // -------------------------------------------------------------
 
-const level = 1;
-
-const TypingGameComponent = () => {
+const TypingGame = ({ level }) => {
   const randomGameText = useMemo(() => getRandomGameText(level), [level]);
   // Call the hook
   const {
-    states: { chars, charsState },
+    states: { chars, charsState, phase },
     actions: { insertTyping, resetTyping, deleteTyping },
   } = useTypingGame(randomGameText);
 
@@ -43,4 +41,4 @@ const TypingGameComponent = () => {
     </h1>
   );
 };
-export default TypingGameComponent;
+export default TypingGame;

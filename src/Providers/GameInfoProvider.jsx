@@ -16,7 +16,8 @@ const GameInfoProvider = ({ children }) => {
   const [averageWpm, setAverageWpm] = useState(defaultInfo.averageWpm);
   const [gameLevel, setGameLevel] = useState(defaultInfo.gameLevel);
   const [totalGamesPlayed, setTotalGamesPlayed] = useState(0);
-  const [resultText, setResultText] = useState(""); // Dodajte state za resultText
+  // FIXME nepotrebno
+  //   const [resultText, setResultText] = useState(""); // Dodajte state za resultText
 
   // TODO vidit sta triba s ovin
   //   useEffect(() => {
@@ -51,7 +52,6 @@ const GameInfoProvider = ({ children }) => {
         updateLevel,
         averageWpm,
         updateAverageWpm,
-        resultText,
       }}
     >
       {children}
