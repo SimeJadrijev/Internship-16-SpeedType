@@ -8,14 +8,10 @@ import NextLevelButton from "../../components/Buttons";
 
 const InstantDeathModePage = () => {
   const { gameMode, gameLevel, updateLevel } = useGameInfo();
-  const [timeStarted, setTimeStarted] = useState(false);
-  const [passedTime, setPassedTime] = useState(0);
   // const [gameCompleted, setGameCompleted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [gamePhase, setGamePhase] = useState(0);
-  const { totalSeconds, seconds, minutes, start } = useStopwatch({
-    autoStart: false,
-  });
+
   return (
     <>
       <h2>Instant Death Mode</h2>
