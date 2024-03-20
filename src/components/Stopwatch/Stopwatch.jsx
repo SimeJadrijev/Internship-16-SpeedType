@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useStopwatch, useTimer } from "react-timer-hook";
 
-const Stopwatch = () => {
+const Stopwatch = ({ gamePhase }) => {
   const {
     totalSeconds,
     seconds,
@@ -14,6 +14,12 @@ const Stopwatch = () => {
     reset,
   } = useStopwatch({ autoStart: false });
 
+  useEffect(() => {
+    if (gamePhase === 0) {
+    }
+    if (gamePhase === 1) start();
+    if (gamePhase === 2) pause();
+  }, [gamePhase]);
   return (
     <div>
       <div style={{ fontSize: "20px" }}>

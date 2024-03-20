@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Stopwatch from "../../components/Stopwatch";
 import { useStopwatch } from "react-timer-hook";
 import NextLevelButton from "../../components/Buttons";
+import LiveStats from "../../components/LiveStats";
 
 const RegularModePage = () => {
   const { gameMode, gameLevel, updateLevel } = useGameInfo();
@@ -49,25 +50,8 @@ const RegularModePage = () => {
   return (
     <>
       <h2>Regular Mode</h2>
-      <Box display={"flex"} flexDirection={"column"} gap={1 / 4} marginTop={3}>
-        <Box display={"flex"} gap={1} alignItems={"center"}>
-          <Typography fontSize={"20px"} variant="p">
-            Level:
-          </Typography>
-          <Typography fontSize={"20px"} variant="p" color={"#e2b714"}>
-            {gameLevel}
-          </Typography>
-        </Box>
-        <Box display={"flex"} gap={1} alignItems={"center"}>
-          <Typography fontSize={"20px"} variant="p">
-            WPM:
-          </Typography>
-          <Typography fontSize={"20px"} variant="p" color={"#e2b714"}>
-            {gameLevel}
-          </Typography>
-        </Box>
-        <Stopwatch />
-      </Box>
+      <LiveStats gameLevel={gameLevel} />
+      <Stopwatch gamePhase={gamePhase} />
       <TypingGame level={gameLevel} setGamePhase={setGamePhase} />
       <NextLevelButton
         updateLevel={updateLevel}
