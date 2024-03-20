@@ -16,9 +16,10 @@ const getGameTexts = () => gameTexts;
 
 const getRandomGameText = (level) => {
     const gameTexts = getGameTexts();
-    const randomNumber = Math.floor( Math.random() * gameTexts.length);
+    const filteredByLevelGameTexts = gameTexts.filter(text => text.level === level);
+    const randomNumber = Math.floor( Math.random() * filteredByLevelGameTexts.length);
 
-    return gameTexts.filter(text => text.level === level)[randomNumber]?.text;
+    return filteredByLevelGameTexts[randomNumber]?.text;
 }
 
 // export {getGameTexts, getGameTextsByLevel, getRandomText};

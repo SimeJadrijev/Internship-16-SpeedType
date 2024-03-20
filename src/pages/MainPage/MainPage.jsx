@@ -26,6 +26,8 @@ const MainPage = () => {
     if (dialogType === "practice") {
       //mozda maknit ovaj dio kasnije ako ne bude ne potreban, ostavit samo bez ifa
       setIsPracticeDialogOpen(false);
+      setIsInstantDeathModeOpen(false);
+      setIsRegularModePageOpen(false);
       setIsPracticePageOpen(true);
     }
   };
@@ -44,32 +46,16 @@ const MainPage = () => {
     setIsInstantDeathModeOpen(true);
   };
 
-  const practiceDialogButtons = [
-    { label: "Yes", onClick: () => handleYesClick("practice") },
-    { label: "No", onClick: handleCloseDialog },
-  ];
-  const newGameDialogButtons = [
-    { label: "Regular Mode", onClick: () => handleRegularModeClick() },
-    {
-      label: "Instant Death Mode",
-      onClick: () => handleInstantDeathModeClick(),
-    },
-  ];
-
   return (
     <>
-      <Header handleOpenDialog={handleOpenDialog} />
-      <DialogComponent
-        isOpen={isPracticeDialogOpen}
-        handleClose={handleCloseDialog}
-        title="Are you sure you want to enter the practice mode?"
-        buttons={practiceDialogButtons}
-      />
-      <DialogComponent
-        isOpen={isNewGameDialogOpen}
-        handleClose={handleCloseDialog}
-        title={"Which mode do you want to enter?"}
-        buttons={newGameDialogButtons}
+      <Header
+        handleOpenDialog={handleOpenDialog}
+        isPracticeDialogOpen={isPracticeDialogOpen}
+        isNewGameDialogOpen={isNewGameDialogOpen}
+        handleYesClick={handleYesClick}
+        handleCloseDialog={handleCloseDialog}
+        handleRegularModeClick={handleRegularModeClick}
+        handleInstantDeathModeClick={handleInstantDeathModeClick}
       />
       {isPracticePageOpen && <PracticePage />}
       {isRegularModePageOpen && <RegularModePage />}
