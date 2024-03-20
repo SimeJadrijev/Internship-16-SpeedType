@@ -1,6 +1,8 @@
-import { useContext, useState } from "react";
-import { createContext } from "react";
-import { getGameTexts, getGameTextsByLevel, getRandomText } from "../data";
+/* eslint-disable react-refresh/only-export-components */
+/* eslint-disable react/prop-types */
+import { useContext, useState, useEffect, createContext } from "react";
+// import { getGameTexts, getGameTextsByLevel, getRandomText } from "../data";
+import { getGameTexts, getRandomGameText } from "../data";
 
 const defaultInfo = {
   gameMode: "regular",
@@ -14,16 +16,22 @@ const GameInfoProvider = ({ children }) => {
   const [averageWpm, setAverageWpm] = useState(defaultInfo.averageWpm);
   const [gameLevel, setGameLevel] = useState(defaultInfo.gameLevel);
   const [totalGamesPlayed, setTotalGamesPlayed] = useState(0);
-  if (gameLevel !== 0) {
-    const textsByLevel = getGameTextsByLevel(gameLevel);
-    let resultText = getRandomText(textsByLevel);
-  }
+  const [resultText, setResultText] = useState(""); // Dodajte state za resultText
+
+  // TODO vidit sta triba s ovin
+  //   useEffect(() => {
+  //     if (gameLevel !== 0) {
+  //       const textsByLevel = getGameTextsByLevel(gameLevel);
+  //       setResultText(getRandomText(textsByLevel)); // Postavite rezultat teksta na temelju razine igre
+  //     }
+  //   }, [gameLevel]);
 
   const updateMode = (mode) => {
-    setGameMode(gameMode);
+    setGameMode(mode);
   };
+
   const updateLevel = (level) => {
-    setGameLevel(gameLevel);
+    setGameLevel(level);
   };
 
   const updateAverageWpm = (wpm) => {
@@ -53,4 +61,4 @@ const GameInfoProvider = ({ children }) => {
 
 const useGameInfo = () => useContext(GameInfoContext);
 
-export default GameInfoProvider;
+export { GameInfoProvider, useGameInfo };
